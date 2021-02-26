@@ -38,7 +38,7 @@ namespace Api.Data.Repository
             }
             catch (Exception ex)
             {
-                return false; ;
+                throw ex;
             }
         }
 

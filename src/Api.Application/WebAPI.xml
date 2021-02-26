@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Application.Controllers.UsersController">
+            <summary>
+            Controlador de query e commands dos usuários do sistema
+            </summary>
+        </member>
+        <member name="M:Api.Application.Controllers.UsersController.GetAll">
+            <summary>
+            Método responsável para retornar todos os usuários do sistema.
+            </summary>
+            <returns>retorna uma lista de usuários</returns>
+        </member>
+        <member name="M:Api.Application.Controllers.UsersController.Get(System.Guid)">
+            <summary>
+            Método responsável por retonar apenas um usuário por meio do Código ID
+            </summary>
+            <param name="id"></param>
+            <returns>retorna o usuário consultado</returns>
+        </member>
+        <member name="M:Api.Application.Controllers.UsersController.Post(Api.Domain.Entities.UserEntity)">
+            <summary>
+            Método responsável por cadastrar novos usuários no sistema
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
