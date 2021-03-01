@@ -4,6 +4,18 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="T:Api.Application.Controllers.LoginController">
+            <summary>
+            Controlador de autenticação de usuários na API
+            </summary>
+        </member>
+        <member name="M:Api.Application.Controllers.LoginController.Login(Api.Domain.Dtos.LoginDto)">
+            <summary>
+            Método responsável por autenticar usuários.
+            </summary>
+            /// <param name="user"></param>
+            <returns>retorna uma lista de usuários</returns>
+        </member>
         <member name="T:Api.Application.Controllers.UsersController">
             <summary>
             Controlador de query e commands dos usuários do sistema
@@ -22,11 +34,25 @@
             <param name="id"></param>
             <returns>retorna o usuário consultado</returns>
         </member>
-        <member name="M:Api.Application.Controllers.UsersController.Post(Api.Domain.Entities.UserEntity)">
+        <member name="M:Api.Application.Controllers.UsersController.Post(Api.Domain.Dtos.User.UserDtoCreate)">
             <summary>
             Método responsável por cadastrar novos usuários no sistema
             </summary>
             <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Application.Controllers.UsersController.Put(Api.Domain.Dtos.User.UserDtoUpdate)">
+            <summary>
+            Método responsável por alterar um usuário existente no sistema
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Application.Controllers.UsersController.Delete(System.Guid)">
+            <summary>
+            Método responsável por deletar um usuário existente no sistema
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
     </members>

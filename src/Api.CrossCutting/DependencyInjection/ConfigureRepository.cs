@@ -13,6 +13,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceColletion.AddDbContext<ApiContext>(options => options.UseSqlServer("Server=HAI-NOTE\\SQLDEV;Database=TSTDBDDD;User Id=sa; Password=h@irath001;"));
 
             serviceColletion.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            serviceColletion.AddScoped<IUserRepository, UserRepository>();
         }
     }
 }

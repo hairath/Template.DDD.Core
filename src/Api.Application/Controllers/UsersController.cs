@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Api.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Api.Domain.Dtos.User;
 
 namespace Api.Application.Controllers
 {
@@ -26,6 +28,7 @@ namespace Api.Application.Controllers
         /// Método responsável para retornar todos os usuários do sistema.
         /// </summary>
         /// <returns>retorna uma lista de usuários</returns>
+        [Authorize("Bearer")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -48,6 +51,7 @@ namespace Api.Application.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>retorna o usuário consultado</returns>
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}", Name = "GetByID")]
         public async Task<IActionResult> Get(Guid id)
@@ -68,8 +72,9 @@ namespace Api.Application.Controllers
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
+        [Authorize("Bearer")]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UserEntity user)
+        public async Task<IActionResult> Post([FromBody] UserDtoCreate user)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -89,8 +94,14 @@ namespace Api.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Método responsável por alterar um usuário existente no sistema
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [Authorize("Bearer")]
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UserEntity user)
+        public async Task<IActionResult> Put([FromBody] UserDtoUpdate user)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -110,6 +121,12 @@ namespace Api.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Método responsável por deletar um usuário existente no sistema
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Authorize("Bearer")]
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(Guid id)
